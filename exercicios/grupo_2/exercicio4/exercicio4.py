@@ -19,8 +19,11 @@ dia_atual = hoje.day
 mes_atual = hoje.month
 ano_atual = hoje.year
 
+# Obtém o nome do mês atual
+nome_mes_atual = hoje.strftime('%B')
+
 # Verifica se é aniversário
 if dia_nascimento == dia_atual and mes_nascimento == mes_atual:
     print('Feliz Aniversário!')
 else:
-    print(f'Hoje é dia {dia_atual} de {mes_atual} de {ano_atual}')
+    print(f'Hoje é dia {dia_atual} de {nome_mes_atual} de {ano_atual}')
