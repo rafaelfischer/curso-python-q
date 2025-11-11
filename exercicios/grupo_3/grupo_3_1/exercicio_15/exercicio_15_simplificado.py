@@ -1,20 +1,30 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Pergunte quantos alunos há na turma. Para cada aluno, pergunte a nota e calcule a média da turma. Atenção, utilize um loop FOR.
+"""
+Grupo 3.2
+Exercício: 15  
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Validação Robusta de Entrada: Peça ao usuário para digitar um número entre 1 e 10 (inclusive). 
+    Use um loop ENQUANTO para continuar pedindo a entrada até que o número seja válido (maior ou igual a 1 E menor ou igual a 10).
+"""
 
-# Pergunta quantidade de alunos
-total_alunos = int(input("Quantos alunos há na turma? "))
+# loop para garantir entrada válida
+while True:
+    # pede número ao usuário
+    numero = input("Digite um número entre 1 e 10: ")
 
-# Soma das notas começa em 0
-soma_notas = 0
+    # verifica se é dígito
+    if not numero.isdigit():
+        print("Entrada inválida. Precisa ser um número.")
+        continue
 
-# Loop para pedir a nota de cada aluno
-for i in range(1, total_alunos + 1):
-    nota = float(input(f"Nota do aluno {i}: "))
-    soma_notas += nota
+    # converte para inteiro
+    numero = int(numero)
 
-# Calcula média
-media = soma_notas / total_alunos
-
-# Mostra resultado
-print(f"Média da turma: {media:.2f}")
+    # verifica se está no intervalo
+    if 1 <= numero <= 10:
+        print(f"Você digitou: {numero}")
+        break
+    else:
+        print("Número fora do intervalo. Tente novamente.")

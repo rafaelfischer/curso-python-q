@@ -1,27 +1,42 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Múltiplos de 5: Imprima todos os múltiplos de 5 que estão entre 1 e 50 (inclusive).
-
-def multiplos_de_5(inicio: int = 1, fim: int = 50) -> list[int]:
+"""
+Grupo 3.2
+Exercício: 9
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Tentativas de Senha Limitadas: A senha correta é "topsecret". 
+    Peça ao usuário para digitar a senha. 
+    Ele tem 3 tentativas. 
+    Use um loop e condicionais para informar se ele acertou ou se esgotou as tentativas. 
+"""
+def verificar_senha(senha_correta: str, max_tentativas: int) -> None:
     """
-    Retorna lista com todos os múltiplos de 5 no intervalo [inicio, fim].
+    Solicita senha ao usuário até acertar ou esgotar tentativas.
     """
-    # Lista para guardar os múltiplos encontrados
-    resultado = []
+    for tentativa in range(1, max_tentativas + 1):
+        # Pede a senha
+        senha_digitada = input("Digite a senha: ")
 
-    # Percorre cada número do intervalo
-    for numero in range(inicio, fim + 1):
-        # Verifica se é múltiplo de 5
-        if numero % 5 == 0:
-            resultado.append(numero)
+        # Compara
+        if senha_digitada == senha_correta:
+            print("Acesso liberado!")
+            return
 
-    return resultado
+        # Avisa quantas tentativas restam
+        restantes = max_tentativas - tentativa
+        if restantes > 0:
+            print(f"Senha incorreta. Você ainda tem {restantes} tentativa(s).")
+        else:
+            print("Senha incorreta. Tentativas esgotadas.")
+
+    print("Acesso bloqueado.")
 
 
+# Constantes do exercício
+SENHA_CORRETA = "topsecret"
+LIMITE_TENTATIVAS = 3
+
+# Executa o programa
 if __name__ == "__main__":
-    # Obtém os múltiplos de 5 entre 1 e 50
-    multiplos = multiplos_de_5()
-
-    # Exibe os valores encontrados
-    print("Múltiplos de 5 entre 1 e 50:")
-    print(multiplos)
+    verificar_senha(SENHA_CORRETA, LIMITE_TENTATIVAS)

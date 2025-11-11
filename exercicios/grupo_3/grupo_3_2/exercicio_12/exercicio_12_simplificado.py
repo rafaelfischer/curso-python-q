@@ -1,19 +1,37 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Média de Notas: Solicite ao usuário a quantidade de notas que ele deseja inserir. Em seguida, peça cada uma das notas e calcule a média aritmética delas.
+"""
+Grupo 3.2
+Exercício: 12
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Contagem de Valores em Faixas: Peça 10 números inteiros ao usuário. 
+    Use um loop e condicionais para contar quantos números estão em cada uma das seguintes faixas: [0, 25], [26, 50], [51, 75], e [76, 100].
+"""
 
-# Pergunta quantas notas serão digitadas
-quantidade = int(input("Quantas notas deseja inserir? "))
+# Contadores para cada faixa
+contador_faixa_0_25 = 0
+contador_faixa_26_50 = 0
+contador_faixa_51_75 = 0
+contador_faixa_76_100 = 0
 
-soma = 0  # Acumula a soma das notas
+# Loop para pedir 10 números
+for i in range(10):
+    numero = int(input(f"Digite o {i + 1}º número inteiro: "))
+    
+    # Verifica em qual faixa o número está e incrementa o contador correspondente
+    if 0 <= numero <= 25:
+        contador_faixa_0_25 += 1
+    elif 26 <= numero <= 50:
+        contador_faixa_26_50 += 1
+    elif 51 <= numero <= 75:
+        contador_faixa_51_75 += 1
+    elif 76 <= numero <= 100:
+        contador_faixa_76_100 += 1
 
-# Loop para ler cada nota
-for i in range(1, quantidade + 1):
-    nota = float(input(f"Digite a {i}ª nota: "))
-    soma += nota  # Adiciona a nota à soma
-
-# Calcula a média
-media = soma / quantidade
-
-# Exibe o resultado
-print(f"A média das {quantidade} notas é {media:.2f}")
+# Exibe os resultados
+print("\nQuantidade de números em cada faixa:")
+print(f"Faixa [0, 25]: {contador_faixa_0_25}")
+print(f"Faixa [26, 50]: {contador_faixa_26_50}")
+print(f"Faixa [51, 75]: {contador_faixa_51_75}")
+print(f"Faixa [76, 100]: {contador_faixa_76_100}")

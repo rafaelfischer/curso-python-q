@@ -1,13 +1,25 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Imprima os números de 10 a 1 em ordem decrescente. Atenção, utilize um loop FOR.
+"""
+Grupo 3.2
+Exercício: 8   
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Listar Números Múltiplos Duplos: De 1 a 100, use um loop para listar todos os números que são divisíveis por 4 E também por 6.
+"""
 
-def imprimir_numeros_decrescente():
-    print("Números de 10 a 1 em ordem decrescente:")
-    # Itera de 10 a 1 (inclusive) em ordem decrescente
-    for numero_atual in range(10, 0, -1):
-        print(numero_atual, end=" ") # Exibe o número seguido de um espaço
-    print() # Adiciona uma nova linha no final para melhor formatação
+def listar_multiplos_duplos(limite: int = 100) -> list[int]:
+    """
+    Retorna lista de números entre 1 e limite divisíveis por 4 e 6 simultaneamente.
+    """
+    multiplos = []  # Armazena os números que atendem à condição
+    for numero in range(1, limite + 1):
+        if numero % 4 == 0 and numero % 6 == 0:  # Verifica dupla divisibilidade
+            multiplos.append(numero)
+    return multiplos
 
-# Chama a função para executar o programa
-imprimir_numeros_decrescente()
+
+if __name__ == "__main__":
+    resultado = listar_multiplos_duplos()
+    print("Números divisíveis por 4 e 6 de 1 a 100:")
+    print(resultado)

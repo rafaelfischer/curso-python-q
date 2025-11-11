@@ -1,25 +1,27 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Faça um programa que some de 0 a 100 somente os números primos, e exiba o resultado. Número primo é aquele que é divisível somente por ele mesmo e pelo número 1.
+"""
+Grupo 3.2
+Exercício: 2
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Contador Decrescente: Desenvolva um programa que imprima na tela todos os números inteiros de 50 a 1, em ordem decrescente.
+"""
 
-def eh_primo_simples(numero):
-    # Números menores que 2 não são primos
-    if numero < 2:
-        return False
-    # Verifica divisibilidade de 2 até o número - 1
-    for divisor in range(2, numero):
-        if numero % divisor == 0:
-            return False
-    return True
+def contador_decrescente(inicio: int = 50, fim: int = 1) -> None:
+    """
+    Imprime números inteiros de 'inicio' até 'fim' em ordem decrescente.
+    """
+    # Valida se os valores estão corretos para decrescimento
+    if inicio < fim:
+        print("Erro: o valor inicial deve ser maior ou igual ao final.")
+        return
 
-def somar_primos_ate_cem_simples():
-    soma_total_primos = 0
-    # Itera de 0 a 100
-    for numero_atual in range(101):
-        # Se o número for primo, adiciona à soma
-        if eh_primo_simples(numero_atual):
-            soma_total_primos += numero_atual
-    print(f"A soma dos números primos de 0 a 100 é: {soma_total_primos}")
+    # Loop de inicio até fim, decrementando 1
+    for numero in range(inicio, fim - 1, -1):
+        print(numero)
 
-# Chama a função para executar o programa
-somar_primos_ate_cem_simples()
+
+if __name__ == "__main__":
+    # Executa o contador padrão (50 a 1)
+    contador_decrescente()

@@ -1,9 +1,14 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Faça um programa que exiba de 0 a 100, somente os números ímpares e não divísiveis por 5, e exiba o resultado.
-
-# Percorre de 0 a 100
-for numero in range(0, 101):
-    # Verifica se é ímpar e não divisível por 5
-    if numero % 2 != 0 and numero % 5 != 0:
+"""
+Grupo 3.2
+Exercício: 3   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Números Pares: Escreva um algoritmo que imprima apenas os números pares de 2 a 20.
+"""
+# Loop de 2 até 20 (inclusive)
+for numero in range(2, 21):
+    # Verifica se é par
+    if numero % 2 == 0:
         print(numero)

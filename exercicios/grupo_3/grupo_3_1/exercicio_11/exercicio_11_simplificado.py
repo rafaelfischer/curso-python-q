@@ -1,25 +1,29 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Pergunte um número. Conte quantos dígitos ele tem. Atenção, utilize um loop WHILE.
+"""
+Grupo 3.2
+Exercício: 11
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Classificação de Alunos Múltipla: Peça a nota final de 4 alunos (de 0 a 100). 
+    Use um loop para cada aluno e um conjunto de condicionais (SE-SENÃO SE) para classificá-los como:
+        "Aprovado" (nota >= 70)
+        "Recuperação" (nota >= 50 E nota < 70)
+        "Reprovado" (nota < 50)"
+"""
 
-# pede número ao usuário
-numero = int(input("Digite um número: "))
-
-# garante número positivo para contar
-if numero < 0:
-    numero = -numero
-
-# contador de dígitos
-contador = 0
-
-# loop while: remove último dígito até zerar
-while numero > 0:
-    numero = numero // 10  # tira o último dígito
-    contador += 1          # conta mais um
-
-# caso tenha digitado 0
-if contador == 0:
-    contador = 1
-
-# mostra resultado
-print("O número tem", contador, "dígitos.")
+# loop para 4 alunos
+for aluno in range(1, 5):
+    # pede a nota
+    nota = float(input(f"Digite a nota do aluno {aluno} (0-100): "))
+    
+    # classifica
+    if nota >= 70:
+        situacao = "Aprovado"
+    elif nota >= 50:
+        situacao = "Recuperação"
+    else:
+        situacao = "Reprovado"
+    
+    # mostra resultado
+    print(f"Aluno {aluno}: {situacao}")

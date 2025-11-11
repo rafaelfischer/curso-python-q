@@ -1,32 +1,25 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Contagem Regressiva Personalizada: Solicite um número inteiro ao usuário e faça uma contagem regressiva a partir desse número até 0, exibindo "FIM!" ao final.
+"""
+Grupo 3.2
+Exercício: 8   
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Listar Números Múltiplos Duplos: De 1 a 100, use um loop para listar todos os números que são divisíveis por 4 E também por 6.
+"""
 
-def contagem_regressiva(inicio: int) -> None:
-    # Conta de inicio até 0 e exibe "FIM!"
-    for numero in range(inicio, -1, -1):
-        print(numero)
-    print("FIM!")
-
-
-def obter_numero_do_usuario() -> int:
-    # Pede número inteiro positivo ao usuário
-    while True:
-        try:
-            valor = int(input("Digite um número inteiro positivo: "))
-            if valor < 0:
-                print("Por favor, digite um número não negativo.")
-                continue
-            return valor
-        except ValueError:
-            print("Entrada inválida. Digite apenas números inteiros.")
-
-
-def main() -> None:
-    # Função principal que orquestra o programa
-    numero_inicial = obter_numero_do_usuario()
-    contagem_regressiva(numero_inicial)
+def listar_multiplos_duplos(limite: int = 100) -> list[int]:
+    """
+    Retorna lista de números entre 1 e limite divisíveis por 4 e 6 simultaneamente.
+    """
+    multiplos = []  # Armazena os números que atendem à condição
+    for numero in range(1, limite + 1):
+        if numero % 4 == 0 and numero % 6 == 0:  # Verifica dupla divisibilidade
+            multiplos.append(numero)
+    return multiplos
 
 
 if __name__ == "__main__":
-    main()
+    resultado = listar_multiplos_duplos()
+    print("Números divisíveis por 4 e 6 de 1 a 100:")
+    print(resultado)
