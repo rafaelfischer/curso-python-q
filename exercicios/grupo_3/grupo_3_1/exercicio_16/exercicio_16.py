@@ -1,81 +1,46 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: (DESAFIO DA SEMANA 3)
-#                           Implemente um programa que cadastre produtos com Nome, Fabricante e Preço.
-#                           Após cada cadastro, pergunte se deseja continuar.
-#                           Ao final, o programa deve exibir todos os produtos cadastrados e destacar o produto mais caro.
-#                           Objetivos didáticos:
-#                           - Uso de loops com controle por resposta
-#                           - Comparação de valores dentro do loop
-#                           - Identificação de máximo valor
-#                           Exemplo de saída esperada:
-#                           Produtos cadastrados:
-#                           - Caneta (Bic) - R$2.50
-#                           - Caderno (Tilibra) - R$15.00
-#                           - Mochila (Nike) - R$120.00
-#                           Produto mais caro:
-#                           - Mochila (Nike) - R$120.00
+"""
+Grupo 3.2
+Exercício: 16   
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Verificação de Palíndromo (Otimizado): Peça uma palavra ao usuário. 
+    Use um loop para comparar os caracteres do início com os caracteres do final da palavra (ex: o primeiro com o último, o segundo com o penúltimo, etc.). 
+    Informe se a palavra é um palíndromo.
+"""
 
-def cadastrar_produto():
-    """Coleta dados de um produto e retorna tupla (nome, fabricante, preço)."""
-    nome = input("Nome do produto: ").strip()
-    fabricante = input("Fabricante: ").strip()
-    while True:
-        try:
-            preco = float(input("Preço (R$): ").replace(",", "."))
-            if preco < 0:
-                print("Preço não pode ser negativo.")
-                continue
-            break
-        except ValueError:
-            print("Digite um valor numérico válido.")
-    return nome, fabricante, preco
+def eh_palindromo(palavra: str) -> bool:
+    """
+    Verifica se a palavra é um palíndromo.
+    Compara o 1º caractere com o último, o 2º com o penúltimo, etc.
+    """
+    inicio = 0
+    fim = len(palavra) - 1
 
-
-def deseja_continuar():
-    """Pergunta se o usuário quer cadastrar mais produtos."""
-    while True:
-        escolha = input("Cadastrar outro produto? (s/n): ").strip().lower()
-        if escolha in ("s", "sim"):
-            return True
-        if escolha in ("n", "não", "nao"):
+    # Loop até o meio da palavra
+    while inicio < fim:
+        if palavra[inicio] != palavra[fim]:
             return False
-        print("Responda com 's' ou 'n'.")
-
-
-def exibir_produtos(produtos):
-    """Lista todos os produtos cadastrados."""
-    print("\nProdutos cadastrados:")
-    for nome, fabricante, preco in produtos:
-        print(f"- {nome} ({fabricante}) - R${preco:.2f}")
-
-
-def encontrar_mais_caro(produtos):
-    """Retorna o produto com maior preço."""
-    if not produtos:
-        return None
-    return max(produtos, key=lambda p: p[2])
+        inicio += 1
+        fim -= 1
+    return True
 
 
 def main():
-    """Loop principal de cadastro e exibição dos resultados."""
-    produtos = []
+    # Entrada do usuário
+    palavra = input("Digite uma palavra: ").strip()
 
-    while True:
-        print("\n--- Cadastro de Produto ---")
-        produto = cadastrar_produto()
-        produtos.append(produto)
+    # Validação simples
+    if not palavra:
+        print("Você não digitou nada.")
+        return
 
-        if not deseja_continuar():
-            break
-
-    exibir_produtos(produtos)
-
-    mais_caro = encontrar_mais_caro(produtos)
-    if mais_caro:
-        nome, fabricante, preco = mais_caro
-        print(f"\nProduto mais caro:")
-        print(f"- {nome} ({fabricante}) - R${preco:.2f}")
+    # Verificação e saída
+    if eh_palindromo(palavra):
+        print(f'"{palavra}" é um palíndromo.')
+    else:
+        print(f'"{palavra}" não é um palíndromo.')
 
 
 if __name__ == "__main__":

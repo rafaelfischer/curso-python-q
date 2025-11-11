@@ -1,30 +1,59 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Maior e Menor Número: Peça ao usuário para digitar uma sequência de números. O programa deve parar quando o usuário digitar 0. Ao final, exiba qual foi o maior e qual foi o menor número digitado (excluindo o 0).
+import random
+"""
+Grupo 3.2
+Exercício: 14   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    JOGO: 
+        Jokenpô (Pedra, Papel, Tesoura) - Melhor de 3: Simule um jogo de Jokenpô onde o usuário joga contra o "computador" (você pode pré-definir as jogadas do computador ou simular aleatoriamente). 
+        Joguem 3 rodadas. 
+        Use um loop e condicionais para determinar o vencedor de cada rodada e o vencedor final (quem ganhar 2 ou 3 rodadas).
+"""
 
-# Inicializa as variáveis para guardar o maior e o menor número digitado
-maior = None
-menor = None
+# placar
+vitorias_usuario = 0
+vitorias_computador = 0
 
-# Loop para pedir números até o usuário digitar 0
-while True:
-    num = int(input("Digite um número (0 para parar): "))
+# opções do jogo
+opcoes = ["pedra", "papel", "tesoura"]
+
+# loop para 3 rodadas
+for rodada in range(1, 4):
+    print(f"\nRodada {rodada}:")
     
-    # Se for 0, encerra o programa
-    if num == 0:
-        break
+    # entrada do usuário
+    escolha_usuario = input("Escolha pedra, papel ou tesoura: ").lower()
     
-    # Define o primeiro número como maior e menor se ainda não houver nenhum
-    if maior is None:
-        maior = num
-        menor = num
+    # valida entrada
+    while escolha_usuario not in opcoes:
+        escolha_usuario = input("Opção inválida. Tente novamente: ").lower()
+    
+    # escolha aleatória do computador
+    escolha_computador = random.choice(opcoes)
+    print(f"Computador escolheu: {escolha_computador}")
+    
+    # regras do jogo
+    if escolha_usuario == escolha_computador:
+        print("Empate!")
+    elif (escolha_usuario == "pedra" and escolha_computador == "tesoura") or \
+         (escolha_usuario == "papel" and escolha_computador == "pedra") or \
+         (escolha_usuario == "tesoura" and escolha_computador == "papel"):
+        print("Você venceu esta rodada!")
+        vitorias_usuario += 1
     else:
-        # Atualiza o maior e o menor se necessário
-        if num > maior:
-            maior = num
-        if num < menor:
-            menor = num
+        print("Computador venceu esta rodada!")
+        vitorias_computador += 1
 
-# Exibe o resultado final
-print("Maior número digitado:", maior)
-print("Menor número digitado:", menor)
+# resultado final
+print("\n--- Resultado Final ---")
+print(f"Você: {vitorias_usuario} vitórias")
+print(f"Computador: {vitorias_computador} vitórias")
+
+if vitorias_usuario > vitorias_computador:
+    print("Parabéns! Você ganhou o melhor de 3!")
+elif vitorias_computador > vitorias_usuario:
+    print("Computador venceu o melhor de 3!")
+else:
+    print("O jogo terminou empatado!")

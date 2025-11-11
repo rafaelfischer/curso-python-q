@@ -1,15 +1,25 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Contagem de Caracteres: Receba uma frase do usuário e conte quantas vezes a letra 'a' (maiúscula ou minúscula) aparece na frase.
+"""
+Grupo 3.2
+Exercício: 13
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Verificar Caracteres Específicos em Frase: Receba uma frase do usuário. 
+	Use um loop para iterar sobre a frase e conte quantos caracteres são vogais (a, e, i, o, u, maiúsculas ou minúsculas) OU são dígitos numéricos (0-9).
+"""
 
 # pede a frase ao usuário
 frase = input("Digite uma frase: ")
 
-# converte tudo para minúsculo para facilitar a contagem
-frase_minuscula = frase.lower()
+# contador de vogais ou dígitos
+contador = 0
 
-# conta quantas vezes a letra 'a' aparece
-quantidade_a = frase_minuscula.count('a')
+# percorre cada caractere da frase
+for caractere in frase:
+    # verifica se é vogal (minúscula ou maiúscula) ou dígito
+    if caractere.lower() in "aeiou" or caractere.isdigit():
+        contador += 1
 
-# mostra o resultado
-print("A letra 'a' aparece", quantidade_a, "vezes na frase.")
+# exibe o resultado
+print("Total de vogais ou dígitos na frase:", contador)

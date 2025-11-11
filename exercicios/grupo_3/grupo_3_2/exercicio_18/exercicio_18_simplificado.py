@@ -1,19 +1,32 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Sequência de Fibonacci: Gere e imprima os primeiros N termos da sequência de Fibonacci, onde N é fornecido pelo usuário. (Ex: 0, 1, 1, 2, 3, 5, 8...)
+"""
+Grupo 3.2
+Exercício: 18
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Cálculo de Média com Exclusões: Peça 7 números ao usuário. 
+    Calcule a média aritmética desses números, mas use condicionais para excluir da soma e da contagem qualquer número que seja negativo OU que seja maior que 100.
+"""
 
-# pede quantidade de termos
-quantidade = int(input("Quantos termos da sequência de Fibonacci você quer ver? "))
+# acumuladores
+soma_validos = 0
+quantidade_validos = 0
 
-# primeiros dois valores
-anterior = 0
-atual = 1
+# pede 7 números
+for i in range(1, 8):
+    numero = float(input(f"Digite o {i+1}º número: "))
+    
+    # ignora negativos ou maiores que 100
+    if numero < 0 or numero > 100:
+        continue
+    
+    soma_validos += numero
+    quantidade_validos += 1
 
-# mostra os N termos
-for i in range(quantidade):
-    print(anterior, end=" ")
-    # próximo valor é a soma dos dois anteriores
-    proximo = anterior + atual
-    # atualiza para o próximo ciclo
-    anterior = atual
-    atual = proximo
+# evita divisão por zero
+if quantidade_validos > 0:
+    media = soma_validos / quantidade_validos
+    print(f"Média dos números válidos: {media}")
+else:
+    print("Nenhum número válido foi digitado.")

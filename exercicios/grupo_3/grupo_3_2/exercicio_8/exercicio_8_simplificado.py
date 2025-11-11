@@ -1,14 +1,16 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Contagem Regressiva Personalizada: Solicite um número inteiro ao usuário e faça uma contagem regressiva a partir desse número até 0, exibindo "FIM!" ao final.
+"""
+Grupo 3.2
+Exercício: 8   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Listar Números Múltiplos Duplos: De 1 a 100, use um loop para listar todos os números que são divisíveis por 4 E também por 6.
+"""
 
-# Pede número ao usuário
-numero = int(input("Digite um número inteiro: "))
-
-# Conta de número até 0
-while numero >= 0:
-    print(numero)
-    numero -= 1
-
-# Exibe fim
-print("FIM!")
+# Loop de 1 a 100
+for numero in range(1, 101):
+    # Verifica se é múltiplo de 4 e 6
+    if numero % 4 == 0 and numero % 6 == 0:
+        # Mostra o número
+        print(numero)

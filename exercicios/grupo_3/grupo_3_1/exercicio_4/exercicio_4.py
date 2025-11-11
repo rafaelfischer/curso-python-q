@@ -1,15 +1,21 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Faça um programa que some de 0 a 100 os números pares, e exiba o resultado.
+"""
+Grupo 3.2
+Exercício: 4   
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Encontrar Primeiro Número Especial: Percorra os números de 1 a 100. 
+    Assim que encontrar o primeiro número que seja maior que 10 E divisível por 7, imprima-o e encerre o loop imediatamente.
+"""
 
-def somar_numeros_pares_simples():
-    soma_dos_pares = 0
-    # Itera de 0 a 100
-    for numero_atual in range(101):
-        # Verifica se o número é par
-        if numero_atual % 2 == 0:
-            soma_dos_pares += numero_atual  # Adiciona o número par à soma
-    print(f"A soma dos números pares de 0 a 100 é: {soma_dos_pares}")
+def encontrar_primeiro_especial():
+    # Percorre números de 1 a 100
+    for numero in range(1, 101):
+        # Verifica se é maior que 10 e divisível por 7
+        if numero > 10 and numero % 7 == 0:
+            print(numero)
+            break  # Encerra ao encontrar o primeiro
 
-# Chama a função para executar o programa
-somar_numeros_pares_simples()
+# Executa a função
+encontrar_primeiro_especial()
