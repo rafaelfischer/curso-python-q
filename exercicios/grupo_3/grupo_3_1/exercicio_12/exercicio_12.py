@@ -1,26 +1,50 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Pergunte um número. Some todos os números de 1 até esse número. Atenção, utilize um loop WHILE.
+"""
+Grupo 3.2
+Exercício: 12
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Contagem de Valores em Faixas: Peça 10 números inteiros ao usuário. 
+    Use um loop e condicionais para contar quantos números estão em cada uma das seguintes faixas: [0, 25], [26, 50], [51, 75], e [76, 100].
+"""
 
-def somar_numeros_ate_o_digitado():
-    try:
-        numero_limite = int(input("Por favor, digite um número inteiro positivo: "))
-        
-        if numero_limite < 1:
-            print("Por favor, digite um número inteiro positivo.")
-            return
+def contar_faixas():
+    # Inicializa contadores para cada faixa
+    faixa_0_25 = 0
+    faixa_26_50 = 0
+    faixa_51_75 = 0
+    faixa_76_100 = 0
 
-        soma_total = 0
-        numero_atual = 1
-        # Loop WHILE para somar os números de 1 até o número digitado
-        while numero_atual <= numero_limite:
-            soma_total += numero_atual
-            numero_atual += 1
-            
-        print(f"A soma de todos os números de 1 até {numero_limite} é: {soma_total}")
+    # Loop para coletar 10 números
+    for i in range(10):
+        while True:
+            try:
+                num = int(input(f"Digite o número {i + 1} (0 a 100): "))
+                if 0 <= num <= 100:
+                    break
+                else:
+                    print("Número fora da faixa permitida. Tente novamente.")
+            except ValueError:
+                print("Entrada inválida. Digite um número inteiro.")
 
-    except ValueError:
-        print("Entrada inválida. Por favor, digite um número inteiro.")
+        # Conta o número na faixa correspondente
+        if 0 <= num <= 25:
+            faixa_0_25 += 1
+        elif 26 <= num <= 50:
+            faixa_26_50 += 1
+        elif 51 <= num <= 75:
+            faixa_51_75 += 1
+        else:  # 76 a 100
+            faixa_76_100 += 1
 
-# Chama a função para executar o programa
-somar_numeros_ate_o_digitado()
+    # Exibe os resultados
+    print("\nContagem por faixas:")
+    print(f"[0-25]:   {faixa_0_25} números")
+    print(f"[26-50]:  {faixa_26_50} números")
+    print(f"[51-75]:  {faixa_51_75} números")
+    print(f"[76-100]: {faixa_76_100} números")
+
+# Executa a função
+if __name__ == "__main__":
+    contar_faixas()

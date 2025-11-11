@@ -1,24 +1,26 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Menu de Opções: Crie um menu simples que exiba as opções "1. Iniciar", "2. Configurar", "3. Sair". O programa deve continuar exibindo o menu até que o usuário escolha a opção "3".
+"""
+Grupo 3.2
+Exercício: 10   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Aumento Salarial Condicional: Para 5 funcionários, peça o salário atual de cada um. 
+    Use um loop para processá-los. 
+    Se o salário for menor que R$1500, aplique um aumento de 15% e mostre o novo salário. 
+    Caso contrário, mostre o salário original.
+"""
 
-# loop infinito até o usuário pedir para sair
-while True:
-    # mostra as opções do menu
-    print("\n1. Iniciar")
-    print("2. Configurar")
-    print("3. Sair")
-
-    # lê a escolha do usuário
-    opcao = input("Escolha uma opção: ")
-
-    # decide o que fazer
-    if opcao == "1":
-        print("Iniciando...")
-    elif opcao == "2":
-        print("Abrindo configurações...")
-    elif opcao == "3":
-        print("Saindo...")
-        break  # encerra o loop
+# loop para 5 funcionários
+for i in range(5):
+    # pede salário atual
+    salario = float(input(f"Salário do funcionário {i+1}: R$"))
+    
+    # verifica se ganha menos de 1500
+    if salario < 1500:
+        # aplica 15% de aumento
+        novo_salario = salario * 1.15
+        print(f"Novo salário: R${novo_salario:.2f}")
     else:
-        print("Opção inválida, tente novamente.")
+        # mantém salário original
+        print(f"Salário sem alteração: R${salario:.2f}")

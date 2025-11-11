@@ -1,40 +1,46 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Soma dos N Primeiros Números: Peça ao usuário um número N e calcule a soma de todos os números inteiros de 1 a N.
+"""
+Grupo 3.2
+Exercício: 11
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Classificação de Alunos Múltipla: Peça a nota final de 4 alunos (de 0 a 100). 
+    Use um loop para cada aluno e um conjunto de condicionais (SE-SENÃO SE) para classificá-los como:
+        "Aprovado" (nota >= 70)
+        "Recuperação" (nota >= 50 E nota < 70)
+        "Reprovado" (nota < 50)"
+"""
 
-def soma_numeros_ate(n: int) -> int:
-    """
-    Calcula a soma dos N primeiros números inteiros positivos.
-    Usa fórmula fechada para evitar loop e garantir performance.
-    """
-    return n * (n + 1) // 2
-
-
-def obter_numero_do_usuario() -> int:
-    """
-    Solicita ao usuário um número inteiro positivo.
-    Valida a entrada até receber um valor válido.
-    """
+def obter_nota(aluno_numero: int) -> int:
+    """Solicita e valida a nota de um aluno."""
     while True:
         try:
-            valor = int(input("Digite um número inteiro positivo N: "))
-            if valor <= 0:
-                print("Por favor, insira um número maior que zero.")
-                continue
-            return valor
+            nota = int(input(f"Digite a nota do aluno {aluno_numero} (0-100): "))
+            if 0 <= nota <= 100:
+                return nota
+            print("Nota inválida! Deve estar entre 0 e 100.")
         except ValueError:
-            print("Entrada inválida. Digite apenas números inteiros.")
+            print("Entrada inválida! Digite um número inteiro.")
+
+
+def classificar_aluno(nota: int) -> str:
+    """Classifica o aluno conforme a nota."""
+    if nota >= 70:
+        return "Aprovado"
+    elif nota >= 50:
+        return "Recuperação"
+    else:
+        return "Reprovado"
 
 
 def main():
-    """
-    Função principal: orquestra a leitura, cálculo e exibição do resultado.
-    """
-    numero = obter_numero_do_usuario()
-    resultado = soma_numeros_ate(numero)
-    print(f"A soma dos {numero} primeiros números é: {resultado}")
+    """Loop principal: coleta 4 notas e exibe classificação."""
+    for i in range(1, 5):
+        nota = obter_nota(i)
+        situacao = classificar_aluno(nota)
+        print(f"Aluno {i}: {situacao}")
 
 
-# Executa o programa apenas se este arquivo for o principal
 if __name__ == "__main__":
     main()

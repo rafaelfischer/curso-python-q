@@ -1,55 +1,32 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: (DESAFIO DA SEMANA 3)
-#                           Implemente um programa que cadastre produtos com Nome, Fabricante e Preço.
-#                           Após cada cadastro, pergunte se deseja continuar.
-#                           Ao final, o programa deve exibir todos os produtos cadastrados e destacar o produto mais caro.
-#                           Objetivos didáticos:
-#                           - Uso de loops com controle por resposta
-#                           - Comparação de valores dentro do loop
-#                           - Identificação de máximo valor
-#                           Exemplo de saída esperada:
-#                           Produtos cadastrados:
-#                           - Caneta (Bic) - R$2.50
-#                           - Caderno (Tilibra) - R$15.00
-#                           - Mochila (Nike) - R$120.00
-#                           Produto mais caro:
-#                           - Mochila (Nike) - R$120.00
+"""
+Grupo 3.2
+Exercício: 16   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Verificação de Palíndromo (Otimizado): Peça uma palavra ao usuário. 
+    Use um loop para comparar os caracteres do início com os caracteres do final da palavra (ex: o primeiro com o último, o segundo com o penúltimo, etc.). 
+    Informe se a palavra é um palíndromo.
+"""
 
-# lista para guardar os produtos
-produtos = []
+# pede palavra ao usuário
+palavra = input("Digite uma palavra: ")
 
-# variáveis para o produto mais caro
-mais_caro_nome = ""
-mais_caro_fabricante = ""
-mais_caro_preco = 0
+# remove espaços e deixa tudo minúsculo para comparar igual
+palavra_limpa = palavra.replace(" ", "").lower()
 
-# loop de cadastro
-while True:
-    # entrada de dados
-    nome = input("Nome do produto: ")
-    fabricante = input("Fabricante: ")
-    preco = float(input("Preço: R$"))
+# assume que é palíndromo
+eh_palindromo = True
 
-    # guarda produto na lista
-    produtos.append((nome, fabricante, preco))
+# compara primeiro com último, segundo com penúltimo...
+for i in range(len(palavra_limpa) // 2):
+    if palavra_limpa[i] != palavra_limpa[-1 - i]:
+        eh_palindromo = False
+        break  # já achou diferença, pode parar
 
-    # verifica se é o mais caro até agora
-    if preco > mais_caro_preco:
-        mais_caro_nome = nome
-        mais_caro_fabricante = fabricante
-        mais_caro_preco = preco
-
-    # pergunta se continua
-    continua = input("Deseja cadastrar outro? (s/n): ").lower()
-    if continua != 's':
-        break
-
-# exibe todos os produtos cadastrados
-print("\nProdutos cadastrados:")
-for nome, fabricante, preco in produtos:
-    print(f"- {nome} ({fabricante}) - R${preco:.2f}")
-
-# exibe o mais caro
-print(f"\nProduto mais caro:")
-print(f"- {mais_caro_nome} ({mais_caro_fabricante}) - R${mais_caro_preco:.2f}")
+# mostra resultado
+if eh_palindromo:
+    print("A palavra é um palíndromo!")
+else:
+    print("A palavra não é um palíndromo.")

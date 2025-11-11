@@ -1,11 +1,28 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Tabuada de um Número: Peça ao usuário para digitar um número inteiro e, em seguida, imprima a tabuada desse número (de 1 a 10).
+"""
+Grupo 3.2
+Exercício: 5   
+Metodo: Simplificado
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Verificar Presença de Vogal: Peça ao usuário para digitar uma palavra. 
+    Use um loop para verificar cada letra da palavra e informe se a palavra contém pelo menos uma vogal.
+"""
+# pede palavra
+palavra = input("Digite uma palavra: ")
 
-# pede número ao usuário
-numero = int(input("Digite um número inteiro: "))
+# vogais a conferir
+vogais = "aeiouAEIOU"
+tem_vogal = False
 
-# loop de 1 a 10
-for i in range(1, 11):
-    # exibe a tabuada
-    print(f"{numero} x {i} = {numero * i}")
+# percorre cada letra
+for letra in palavra:
+    if letra in vogais:
+        tem_vogal = True
+        break
+
+# mostra resultado
+if tem_vogal:
+    print("A palavra contém pelo menos uma vogal.")
+else:
+    print("A palavra não possui vogais.")

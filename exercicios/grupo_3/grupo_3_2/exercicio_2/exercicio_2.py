@@ -1,15 +1,25 @@
-# Autor: Rafael Fischer
-# Data de Criação: 07/10/2025
-# Descrição da Solicitação: Contador Decrescente: Desenvolva um programa que imprima na tela todos os números inteiros de 50 a 1, em ordem decrescente.
+"""
+Grupo 3.2
+Exercício: 2
+Metodo: Tradicional
+Autor: Rafael Fischer
+Data de Criação: 07/10/2025
+Descrição da Solicitação: 
+    Contar Múltiplos de 3: Utilize um loop para iterar de 1 a 50 e conte quantos números são múltiplos de 3. 
+    Ao final, imprima a contagem.
+"""
 
-def contador_decrescente(inicio: int = 50, fim: int = 1) -> None:
+def contar_multiplos_de_tres(limite: int = 50) -> int:
     """
-    Imprime números inteiros de 'inicio' até 'fim' em ordem decrescente.
+    Conta quantos números entre 1 e limite (inclusive) são múltiplos de 3.
     """
-    for numero in range(inicio, fim - 1, -1):
-        print(numero)
+    contador = 0
+    for numero in range(1, limite + 1):
+        if numero % 3 == 0:  # Verifica se é múltiplo de 3
+            contador += 1
+    return contador
 
 
-# Ponto de entrada do script
 if __name__ == "__main__":
-    contador_decrescente()
+    total = contar_multiplos_de_tres()
+    print(f"Quantidade de múltiplos de 3 entre 1 e 50: {total}")
