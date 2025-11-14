@@ -1,0 +1,23 @@
+[
+  {
+    "ID": "DEP",
+    "Nome": "Depósito",
+    "Descricao": "Adição de fundos à conta.",
+    "Abreviacao": "DEP",
+    "Ativo": true
+  },
+  {
+    "ID": "SAQ",
+    "Nome": "Saque",
+    "Descricao": "Retirada de fundos da conta.",
+    "Abreviacao": "SAQ",
+    "Ativo": true
+  },
+  {
+    "ID": "CHE",
+    "Nome": "Cheque Especial",
+    "Descricao": "Utilização do limite de cheque especial.",
+    "Abreviacao": "CHE",
+    "Ativo": true
+  }
+]
