@@ -1,0 +1,17 @@
+{
+    "11122233344": {
+        "nome": "Teste Cliente",
+        "saldo": 100.0,
+        "limite_cheque_especial": 0.0,
+        "cheque_especial_utilizado": 0.0,
+        "status": "Ativo",
+        "transacoes": [
+            {
+                "data_hora": "11-11-2025 22:22",
+                "tipo": "DEP",
+                "valor": 100.0
+            }
+        ],
+        "limite_cheque_especial_solicitado": true
+    }
+}
